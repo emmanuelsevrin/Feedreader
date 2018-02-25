@@ -75,18 +75,21 @@ $(function() {
 
     })
 
-    /*
+    
     describe('Initial Entries', function(){
 
-        beforeEach(function() {
-        	this.
+        beforeEach(function(done) {
+        	loadFeed(0, done());
         })
 
-        	it('exist within the feed container', function(){
-        		expect($())
+
+        	it('exist within the feed container', function(done){
+                var numEntries = $(".feed .entry").length;
+        		expect(numEntries).toBeGreaterThan(0);
+                done();
         	})
         })
-    /*
+    
 
     /* TODO: Write a new test suite named "Initial Entries" */
 
