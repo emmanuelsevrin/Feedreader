@@ -97,6 +97,7 @@ $(function() {
         beforeEach(function(done){
             loadFeed(1);
             var First_content = $(".feed").first().text();
+            console.log(First_content);
             loadFeed(2, done());
         })
 
@@ -104,6 +105,7 @@ $(function() {
 
         it('is changed', function(done){
             var Second_content = $(".feed").first().text()
+            console.log(Second_content);
             expect(Second_content).not.tobe(First_content);
             done();
         })
