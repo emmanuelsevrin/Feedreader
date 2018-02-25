@@ -88,17 +88,29 @@ $(function() {
         		expect(numEntries).toBeGreaterThan(0);
                 done();
         	})
+
         })
+
+    describe('New Feed Selection', function(){
+
+
+        beforeEach(function(done){
+            loadFeed(1);
+            var First_content = $(".feed").first().text();
+            loadFeed(2, done());
+        })
+
+
+
+        it('is changed', function(done){
+            var Second_content = $(".feed").first().text()
+            expect(Second_content).not.tobe(First_content);
+            done();
+        })
+
+
+    })
     
-
-    /* TODO: Write a new test suite named "Initial Entries" */
-
-        /* TODO: Write a test that ensures when the loadFeed
-         * function is called and completes its work, there is at least
-         * a single .entry element within the .feed container.
-         * Remember, loadFeed() is asynchronous so this test will require
-         * the use of Jasmine's beforeEach and asynchronous done() function.
-         */
 
     /* TODO: Write a new test suite named "New Feed Selection" */
 
