@@ -79,11 +79,12 @@ $(function() {
     describe('Initial Entries', function(){
 
         beforeEach(function(done) {
-        	loadFeed(0, done());
-        })
+        	loadFeed(0);
+            done();
+        });
 
 
-        	it('exist within the feed container', function(done){
+        	it('exist within the feed container', function(done) {
                 var numEntries = $(".feed .entry").length;
         		expect(numEntries).toBeGreaterThan(0);
                 done();
@@ -93,26 +94,25 @@ $(function() {
 
     describe('New Feed Selection', function(){
 
+        var First_content = $(".feed .entry").text();
+        console.log(First_content);
 
         beforeEach(function(done){
-            loadFeed(1);
-            var First_content = $(".feed").first().text();
-            console.log(First_content);
-            loadFeed(2, done());
-        })
+            loadFeed(0);
+            done();
+        });
 
 
 
-        it('is changed', function(done){
-            var Second_content = $(".feed").first().text()
+        it('is different', function(done){
+            var Second_content = $(".feed .entry").text();
             console.log(Second_content);
-            expect(Second_content).not.tobe(First_content);
+            expect(Second_content).not.toBe(First_content);
             done();
         })
 
 
     })
-    
 
     /* TODO: Write a new test suite named "New Feed Selection" */
 
