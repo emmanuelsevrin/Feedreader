@@ -14,28 +14,28 @@ $(function() {
         it('are defined', function() {
             expect(allFeeds).toBeDefined();
             expect(allFeeds.length).not.toBe(0);
-        })
+        });
  
         //function testing that a specific feed has a defined, non-null URL       
         function test_URLs(feed){
             it('the \'' + feed.name + '\' feed has an URL', function(){
                 expect(feed.url).toBeDefined();
                 expect(feed.url).not.toBe(null);
-            })
+            });
         }
 
         //function testing that a specific feed has a name
          function test_name(feed, index){
             it('the ' + index + '(st) feed has a name', function(){
                 expect(feed.name).toBeDefined();
-                expect(feed.name).not.toBe(null);
-            })
+                expect(feed.name).not.toBe(null);   
+            });
         }
         
         //looping through allFeeds to ensure an URL in all feeds 
         for(let feed of allFeeds){
             test_URLs(feed);
-         };
+        }
 
 
          //looping through allfeeds to make sure they all have a name
@@ -50,7 +50,7 @@ $(function() {
         //making sure the menu is hidden by default
         it('is hidden by default', function(){
             expect($("body").hasClass("menu-hidden")).toBe(true);
-        })
+        });
         
         //making sure the menu has visibility when clicked
         it('changes visibility when clicked', function(){
@@ -58,7 +58,7 @@ $(function() {
             expect($('body').hasClass("menu-hidden")).not.toBe(true);
             $(".menu-icon-link").click();
             expect($('body').hasClass("menu-hidden")).toBe(true);
-        })
+        });
 
     })
 
@@ -67,14 +67,14 @@ $(function() {
 
         beforeEach(function(done) {
         	loadFeed(0, done);
-        });
+        })
 
 
         	it('exist within the feed container', function(done) {
                 var numEntries = $(".feed .entry").length;
         		expect(numEntries).toBeGreaterThan(0);
                 done();
-        	})
+        	});
 
         })
 
@@ -84,7 +84,7 @@ $(function() {
 
         beforeEach(function(done){
             loadFeed(0, done);
-        });
+        })
 
 
         it('is different', function(done){
@@ -93,7 +93,7 @@ $(function() {
         
             expect(firstContent).not.toBe(secondContent);
             done();
-        })
+        });
 
     })
 
