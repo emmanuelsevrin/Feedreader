@@ -61,17 +61,17 @@ $(function() {
     });
 
     describe('The Menu', function(){
+
         it('is hidden by default', function(){
             expect($("body").hasClass("menu-hidden")).toBe(true);
         })
         
-        it('changes visibility when clicked'), function(){
-			$(".menu-icon-link").click();
-			expect($('body').hasClass("menu-hidden")).not.toBe(true);
-			$(".menu-icon-link").click();
-			expect($('body').hasClass("menu-hidden")).toBe(true);
-        }
-
+        it('changes visibility when clicked', function(){
+            $(".menu-icon-link").click();
+            expect($('body').hasClass("menu-hidden")).not.toBe(true);
+            $(".menu-icon-link").click();
+            expect($('body').hasClass("menu-hidden")).toBe(true);
+        })
 
     })
 
@@ -79,8 +79,7 @@ $(function() {
     describe('Initial Entries', function(){
 
         beforeEach(function(done) {
-        	loadFeed(0);
-            done();
+        	loadFeed(0, done);
         });
 
 
@@ -94,23 +93,20 @@ $(function() {
 
     describe('New Feed Selection', function(){
 
-        var First_content = $(".feed .entry").text();
-        console.log(First_content);
+        var firstContent = $(".feed").html();
 
         beforeEach(function(done){
-            loadFeed(0);
-            done();
+            loadFeed(0, done);
         });
 
 
-
         it('is different', function(done){
-            var Second_content = $(".feed .entry").text();
-            console.log(Second_content);
-            expect(Second_content).not.toBe(First_content);
+
+            var secondContent = $(".feed").html();
+        
+            expect(firstContent).not.toBe(secondContent);
             done();
         })
-
 
     })
 
