@@ -60,14 +60,14 @@ $(function() {
             expect($('body').hasClass("menu-hidden")).toBe(true);
         });
 
-    })
+    });
 
     
     describe('Initial Entries', function(){
 
         beforeEach(function(done) {
         	loadFeed(0, done);
-        })
+        });
 
 
         	it('exist within the feed container', function(done) {
@@ -76,7 +76,7 @@ $(function() {
                 done();
         	});
 
-        })
+        });
 
     describe('New Feed Selection', function(){
 
@@ -84,7 +84,7 @@ $(function() {
 
         beforeEach(function(done){
             loadFeed(0, done);
-        })
+        });
 
 
         it('is different', function(done){
@@ -95,7 +95,7 @@ $(function() {
             done();
         });
 
-    })
+    });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
 
